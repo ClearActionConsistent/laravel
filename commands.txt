@@ -1,1 +1,2 @@
 php artisan make:controller PriceCodeController
+php artisan make:model PriceCode
