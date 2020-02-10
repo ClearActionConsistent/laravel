@@ -1,3 +1,16 @@
 php artisan make:controller PriceCodeController
-php artisan make:model PriceCode
-php artisan make:migration PriceCode
+php artisan make:model Price
+php artisan make:migration Price
+php artisan migrate
+
+--create test data for Price by runing folowing commands
+php artisan tinker => start commandline for tinker app
+$price = new App\Price;
+$price->id = 1;
+$price->name = 'Regular';
+$price-> code = 1;
+do the same to create other prices(new release and kid)
+
+
+
+

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PriceCode extends Migration
+class Prices extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,12 @@ class PriceCode extends Migration
     public function up()
     {
         //
+		Schema::create('prices', function(Blueprint $table){
+			$table -> bigIncrements('id');
+			$table -> string('name');
+			$table -> string('code');
+			$table -> timestamps();
+		});
     }
 
     /**
