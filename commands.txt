@@ -12,5 +12,11 @@ $price-> code = 1;
 do the same to create other prices(new release and kid)
 
 
+--create movie model and migration
+php artisan make:model Movie
+php artisan make:migration Movie
+php artisan migrate
+
+
 
 
