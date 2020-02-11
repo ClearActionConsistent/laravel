@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Movie extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class Movie extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function(Blueprint $table){
-			$table->bigIncrements('id');
-			$table->unsignedBigInteger('price_id');
+        Schema::create('companies', function (Blueprint $table) {
+            $table->bigIncrements('id');
 			$table->string('name');
-			$table->text('description')->nullable();
-			$table->timestamps();
-			
-			$table->index('price_id');
-		});
+			$table->string('phone');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -31,6 +28,6 @@ class Movie extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('movies');
+        Schema::dropIfExists('companies');
     }
 }

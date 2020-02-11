@@ -1,0 +1,2 @@
+1. tinker issue: the one to many relationship working fine but standing at child model to fetch the paren, tinker return null. => testing in controller it work fine.
+2. whenever updating migration file(s) => run php artisan migrate:reset => delete all rows in migrations table => run php artisan migrate => migrate all 
