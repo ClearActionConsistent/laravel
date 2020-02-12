@@ -2,3 +2,17 @@
 2. whenever updating migration file(s) => run php artisan migrate:reset => delete all rows in migrations table => run php artisan migrate => migrate all 
 
 3. when creating foreing key, should manually migrate to make sure parent table got executed before the child table.
+
+4. must follow naming convention when building laravel restful resource. refer to the link and examples below:
+link: https://laravel.com/docs/5.1/controllers
+
+examples:
+Verb	    Path	          Action     Route Name
+GET	    /photo	          index	     photo.index
+GET	    /photo/create         create     photo.create
+POST	    /photo	          store	     photo.store
+GET	    /photo/{photo}        show	     photo.show
+GET	    /photo/{photo}/edit	  edit	     photo.edit
+PUT/PATCH   /photo/{photo}	  update     photo.update
+DELETE	    /photo/{photo}	  destroy    photo.destroy
+

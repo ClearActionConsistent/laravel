@@ -18,4 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/pricecodes', 'PriceCodeController@index')->name('pricecodes');
+
+Route::get('/pricecode', 'PriceCodeController@index')->name('pricecode.index');
+Route::get('/pricecode/create', 'PriceCodeController@create')->name('pricecode.create');
+Route::post('/pricecode', 'PriceCodeController@store')->name('pricecode.store');
+Route::get('/pricecode/{pricecode}', 'PriceCodeController@show')->name('pricecode.show');
+Route::get('/pricecode/{pricecode}/edit', 'PriceCodeController@edit')->name('pricecode.edit');
+Route::patch('/pricecode/{pricecode}', 'PriceCodeController@update')->name('pricecode.update');
+//when put and when patch????????????
+//Route::put('/pricecode/{pricecode}', 'PriceCodeController@update')->name('pricecode.update');
+Route::delete('/pricecode/{pricecode}', 'PriceCodeController@destroy')->name('pricecode.destroy');
