@@ -27,31 +27,30 @@ class PriceCodeController extends Controller
 		return redirect()->route('pricecode.index');
 	}
 	
-	public function show()
+	public function show(App\PriceCode $priceCode)
 	{
-		//take advanced of model binding to initiate model object
-		return view();
+		return view('pricecode.show', compact('priceCode'));
 	}
 	
-	public function edit(App\PriceCode $pricecode)
+	public function edit(App\PriceCode $priceCode)
 	{
-		return view('pricecode.update', compact('pricecode'));
+		return view('pricecode.update', compact('priceCode'));
 	}
 	
-	public function update(App\PriceCode $pricecode)
+	public function update(App\PriceCode $priceCode)
 	{
 		$data = request()->validate([
 			'name' => 'required',
 			'code' => ['required']
 		]);
 		
-		$pricecode->update($data);
+		$priceCode->update($data);
 		return redirect()->route('pricecode.index');
 	}
 	
-	public function destroy(App\PriceCode $pricecode)
+	public function destroy(App\PriceCode $priceCode)
 	{
-		$pricecode->delete();
+		$priceCode->delete();
 		return redirect()->route('pricecode.index');
 	}
 }

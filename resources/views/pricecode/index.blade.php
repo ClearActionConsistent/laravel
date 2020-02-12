@@ -22,7 +22,7 @@
 				 <button type="submit">Delete</button>               
 				</form>
 			</td>
-			<td><a href="{{route('pricecode.edit', ['pricecode'=>$pc->id])}}">Edit</a></td>
+			<td><a href="{{route('pricecode.edit', ['priceCode'=>$pc->id])}}">Edit</a></td>
 		</tr>
 		@endforeach
 	</tbody>
