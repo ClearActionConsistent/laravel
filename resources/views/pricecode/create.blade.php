@@ -1,7 +1,7 @@
 <h1>Create Price Code</h1>
 <div class="container">
 	<form class="form-inline" method="post" action="{{route('pricecode.store')}}">
-		{{csrf_field()}}
+		@csrf
 		
 		  <div class="form-group">
 			<label for="name">Name:</label>

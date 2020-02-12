@@ -8,6 +8,7 @@ class Movie extends Model
 {
     protected $guarded = [];
 	
+	
 	public function priceCode()
 	{
 		return $this->belongsTo(PriceCode::class);

@@ -17,7 +17,7 @@ class CreateMoviesTable extends Migration
 			$table->engine = "InnoDB";
 			$table->bigIncrements('id');
 			$table->string('name');
-            $table->timestamps();
+			$table->timestamps();
 			$table->unsignedBigInteger('price_code_id');
 			$table->foreign('price_code_id')->references('id')->on('price_codes');
         });

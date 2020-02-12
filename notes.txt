@@ -16,3 +16,5 @@ GET	    /photo/{photo}/edit	  edit	     photo.edit
 PUT/PATCH   /photo/{photo}	  update     photo.update
 DELETE	    /photo/{photo}	  destroy    photo.destroy
 
+5. in order to add new field to existing table, we need to add doctrine/dbal to dependencies in composer.json. save the file and run command "composer update" using GitBash is much better than using cmd. Then create new migration just for new field.
+
