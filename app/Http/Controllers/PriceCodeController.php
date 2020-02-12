@@ -7,10 +7,7 @@ class PriceCodeController extends Controller
 {
 	public function index()
 	{
-		//$companies = App\Company::first()->customers;
-		//dd($companies[0]->name);
-		$customer = App\Customer::first()->company;
-		dd($customer->name);
-		return view('pricecode.home');
+		$priceCodes = App\PriceCode::all();
+		return view('pricecode.home', compact('priceCodes'));
 	}
 }
