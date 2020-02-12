@@ -33,17 +33,20 @@ class PriceCodeController extends Controller
 		return view();
 	}
 	
-	public function edit()
+	public function edit(App\PriceCode $pricecode)
 	{
-		//take advanced of model binding to initiate model object
-		//pass the model to the view to edit
-		return view();
+		return view('pricecode.update', compact('pricecode'));
 	}
 	
-	public function update()
+	public function update(App\PriceCode $pricecode)
 	{
-		//handle submitted data, do validation and persist data
-		return view();
+		$data = request()->validate([
+			'name' => 'required',
+			'code' => ['required']
+		]);
+		
+		$pricecode->update($data);
+		return redirect()->route('pricecode.index');
 	}
 	
 	public function destroy(App\PriceCode $pricecode)

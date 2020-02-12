@@ -6,6 +6,7 @@
 			<th scope="col">Name</th>
 			<th scope="col">Code</th>
 			<th scope="col"></th>
+			<th scope="col"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,6 +22,7 @@
 				 <button type="submit">Delete</button>               
 				</form>
 			</td>
+			<td><a href="{{route('pricecode.edit', ['pricecode'=>$pc->id])}}">Edit</a></td>
 		</tr>
 		@endforeach
 	</tbody>
