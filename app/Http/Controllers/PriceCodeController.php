@@ -8,19 +8,12 @@ class PriceCodeController extends Controller
 	public function index()
 	{
 		$priceCodes = App\PriceCode::all();
-		return view('pricecode.home', compact('priceCodes'));
+		return view('pricecode.index', compact('priceCodes'));
 	}
 	
 	public function create()
 	{
 		return view('pricecode.create');
-	}
-	
-	public function store2(Request $request)
-	{
-		print_r($request->all());
-		//handle submitted data, do validation and persist data
-		//return view();
 	}
 	
 	public function store()
@@ -30,8 +23,8 @@ class PriceCodeController extends Controller
 			'code' => ['required']
 		]);
 		
-		return App\PriceCode::create($data);
-		//return view();
+		App\PriceCode::create($data);
+		return redirect()->route('pricecode.index');
 	}
 	
 	public function show()
@@ -53,9 +46,9 @@ class PriceCodeController extends Controller
 		return view();
 	}
 	
-	public function destroy()
+	public function destroy(App\PriceCode $pricecode)
 	{
-		//delete data from db
-		return view();
+		$pricecode->delete();
+		return redirect()->route('pricecode.index');
 	}
 }
