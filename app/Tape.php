@@ -13,4 +13,9 @@ class Tape extends Model
 		return $this->belongsTo(Movie::class);
 	}
 	
+	public function stocks()
+	{
+		return $this->hasMany(Stock::class);
+	}
+	
 }
