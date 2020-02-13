@@ -23,9 +23,11 @@
 	  <div class="form-group">
 		<label for="price_code_id">Price Code:</label>
 		<select id="price_code_id" name="price_code_id">
-			<option value="1">Regular</option>
-			<option value="3">New Release</option>
-			<option value="4">For Kid</option>
+			@foreach($priceCodes as $priceCode)
+				<option value="{{$priceCode->id}}">
+					{{$priceCode->name}}
+				</option>
+			@endforeach
 		</select>
 		@if($errors->has('price_code_id'))
 			<span class="invalid-feedback" role="alert">

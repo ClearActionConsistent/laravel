@@ -1,9 +1,9 @@
-<form method="post" action="{{route('pricecode.update',['priceCode'=>$priceCode->id])}}">
+<form method="post" action="{{route('movie.update',['movie'=>$movie->id])}}">
 	@csrf
 	@method('PATCH')
 	<div class="form-group">
 		<label for="name">Name:</label>
-		<input type="text" class="form-control" name="name" id="name" value="{{$priceCode->name}}">
+		<input type="text" class="form-control" name="name" id="name" value="{{$movie->name}}">
 		@if($errors->has('name'))
 			<span class="invalid-feedback" role="alert">
 				<strong>{{$errors->first('name')}}</strong>
@@ -11,14 +11,30 @@
 		@endif
 	</div>
 	<div class="form-group">
-		<label for="code">Code:</label>
-		<input type="number" class="form-control" id="code" name="code" value="{{$priceCode->code}}">
-		@if($errors->has('code'))
+		<label for="code">Part:</label>
+		<input type="number" class="form-control" id="part" name="part" value="{{$movie->part}}">
+		@if($errors->has('part'))
 			<span class="invalid-feedback" role="alert">
-				<strong>{{$errors->first('code')}}</strong>
+				<strong>{{$errors->first('part')}}</strong>
 			</span>
 		@endif
 	</div>
+	
+	<div class="form-group">
+		<label for="price_code_id">Price Code:</label>
+		<select id="price_code_id" name="price_code_id">
+			@foreach($priceCodes as $priceCode)
+				<option value="{{$priceCode->id}}">
+					{{$priceCode->name}}
+				</option>
+			@endforeach
+		</select>
+		@if($errors->has('price_code_id'))
+			<span class="invalid-feedback" role="alert">
+				<strong>{{$errors->first('price_code_id')}}</strong>
+			</span>
+		@endif
+	  </div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
