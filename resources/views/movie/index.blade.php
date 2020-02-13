@@ -27,5 +27,8 @@
 			<td><a href="{{route('movie.edit', ['movie'=>$mv->id])}}">Edit</a></td>
 		</tr>
 		@endforeach
+		<tr>
+			<td colspan="5">{{ $movies->links() }}</td>
+		</tr>
 	</tbody>
 </table>
