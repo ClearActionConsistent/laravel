@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\PriceCode;
+use App\Http\View\Composers\PriceCodesComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,9 +30,20 @@ class AppServiceProvider extends ServiceProvider
         //View::share('priceCodes', PriceCode::orderBy('id')->get());
 		
 		//case 2: specify views 
+		/*
 		View::composer(['movie.create', 'movie.update'], function($view){
 			$view->with('priceCodes', PriceCode::orderBy('id')->get()
 			);
 		});
+		*/
+		//case 3: specify views using wildcard
+		/*
+		View::composer(['movie.*'], function($view){
+			$view->with('priceCodes', PriceCode::orderBy('id')->get();
+			);
+		});
+		*/
+		//case 4: create a seperated class just for handling shared data
+		View::composer(['movie.create', 'movie.update'], PriceCodesComposer::class);
     }
 }
