@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rental;
+use App\Tape;
 
 class RentalsController extends Controller
 {
-    public function create(Rental $rental)
+    public function create(Tape $tape)
 	{
-		return "erwrwer";
-		return view('rental.create', compact('rental'));
+		return view('rental.create', compact('tape'));
 	}
 }
