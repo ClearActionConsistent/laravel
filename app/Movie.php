@@ -13,4 +13,9 @@ class Movie extends Model
 	{
 		return $this->belongsTo(PriceCode::class);
 	}
+	
+	public function tapes()
+	{
+		return $this->hasMany(Tape::class);
+	}
 }

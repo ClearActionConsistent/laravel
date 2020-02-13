@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\PriceCode;
 use App\Http\View\Composers\PriceCodesComposer;
+use App\Http\View\Composers\MoviesComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,5 +46,6 @@ class AppServiceProvider extends ServiceProvider
 		*/
 		//case 4: create a seperated class just for handling shared data
 		View::composer(['partials.pricecodes.*'], PriceCodesComposer::class);
+		View::composer(['partials.movies.*'], MoviesComposer::class);
     }
 }

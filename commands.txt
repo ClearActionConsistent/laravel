@@ -17,6 +17,10 @@ php artisan make:model Movie
 php artisan make:migration Movie
 php artisan migrate
 
+php artisan make:model Tape -m
+php artisan make:controller TapeController
+php artisan migrage
+
 
 
 
