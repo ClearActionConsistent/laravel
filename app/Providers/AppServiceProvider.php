@@ -44,6 +44,6 @@ class AppServiceProvider extends ServiceProvider
 		});
 		*/
 		//case 4: create a seperated class just for handling shared data
-		View::composer(['movie.create', 'movie.update'], PriceCodesComposer::class);
+		View::composer(['partials.pricecodes.*'], PriceCodesComposer::class);
     }
 }

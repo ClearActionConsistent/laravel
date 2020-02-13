@@ -22,13 +22,7 @@
 	
 	<div class="form-group">
 		<label for="price_code_id">Price Code:</label>
-		<select id="price_code_id" name="price_code_id">
-			@foreach($priceCodes as $priceCode)
-				<option value="{{$priceCode->id}}">
-					{{$priceCode->name}}
-				</option>
-			@endforeach
-		</select>
+		@include('partials.pricecodes.dropdown')
 		@if($errors->has('price_code_id'))
 			<span class="invalid-feedback" role="alert">
 				<strong>{{$errors->first('price_code_id')}}</strong>
