@@ -45,12 +45,11 @@ Route::get('/tape/{tape}/edit', 'TapesController@edit')->name('tape.edit');
 Route::patch('/tape/{tape}', 'TapesController@update')->name('tape.update');
 Route::delete('/tape/{tape}', 'TapesController@destroy')->name('tape.destroy');
 
-Route::get('/tape/{tape}/rent', 'TapesController@rent')->name('tape.rent');
+Route::get('/rental', 'RentalsController@index')->name('rental.index');
+Route::get('/rental/{rental}/create', 'RentalsController@create')->name('rental.create');
+Route::post('/rental/{rental}', 'RentalsController@store')->name('rental.store');
+Route::get('/rental/{rental}', 'RentalsController@show')->name('rental.show');
+Route::get('/rental/{rental}/edit', 'RentalsController@edit')->name('rental.edit');
+Route::patch('/rental/{rental}', 'RentalsController@update')->name('rental.update');
+Route::delete('/rental/{rental}', 'RentalsController@destroy')->name('rental.destroy');
 
-Route::get('/stock', 'StocksController@index')->name('stock.index');
-Route::get('/stock/create', 'StocksController@create')->name('stock.create');
-Route::post('/stock', 'StocksController@store')->name('stock.store');
-Route::get('/stock/{stock}', 'StocksController@show')->name('stock.show');
-Route::get('/stock/{stock}/edit', 'StocksController@edit')->name('stock.edit');
-Route::patch('/stock/{stock}', 'StocksController@update')->name('stock.update');
-Route::delete('/stock/{stock}', 'StocksController@destroy')->name('stock.destroy');

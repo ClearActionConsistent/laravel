@@ -56,8 +56,5 @@ class TapesController extends Controller
 		return redirect()->route('tape.index');
 	}
 	
-	public function rent(Tape $tape)
-	{
-		return view('tape.rent', compact('tape'));
-	}
+	
 }

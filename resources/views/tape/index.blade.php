@@ -26,7 +26,7 @@
 				</form>
 			</td>
 			<td><a href="{{route('tape.edit', ['tape'=>$tape->id])}}">Edit</a></td>
-			<td><a href="{{route('tape.rent', ['tape'=>$tape->id])}}">Rent</a></td>
+			<td><a href="{{route('rental.create', ['rental'=>$tape->id])}}">Rent</a></td>
 		</tr>
 		@endforeach
 		<tr>
