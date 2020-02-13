@@ -45,7 +45,8 @@ class MoviesController extends Controller
 	{
 		$data = request()->validate([
 			'name' => 'required',
-			'part' => ['required']
+			'part' => ['required'],
+			'price_code_id' => 'required'
 		]);
 		
 		$movie->update($data);

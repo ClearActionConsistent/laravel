@@ -22,7 +22,7 @@
 	
 	<div class="form-group">
 		<label for="price_code_id">Price Code:</label>
-		@include('partials.pricecodes.dropdown')
+		@include('partials.pricecodes.dropdown',['selected' => $movie->price_code_id])
 		@if($errors->has('price_code_id'))
 			<span class="invalid-feedback" role="alert">
 				<strong>{{$errors->first('price_code_id')}}</strong>
