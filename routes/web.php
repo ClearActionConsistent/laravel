@@ -45,6 +45,8 @@ Route::get('/tape/{tape}/edit', 'TapesController@edit')->name('tape.edit');
 Route::patch('/tape/{tape}', 'TapesController@update')->name('tape.update');
 Route::delete('/tape/{tape}', 'TapesController@destroy')->name('tape.destroy');
 
+Route::get('/tape/{tape}/rent', 'TapesController@rent')->name('tape.rent');
+
 Route::get('/stock', 'StocksController@index')->name('stock.index');
 Route::get('/stock/create', 'StocksController@create')->name('stock.create');
 Route::post('/stock', 'StocksController@store')->name('stock.store');

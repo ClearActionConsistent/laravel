@@ -55,4 +55,9 @@ class TapesController extends Controller
 		$tape->delete();
 		return redirect()->route('tape.index');
 	}
+	
+	public function rent(Tape $tape)
+	{
+		return view('tape.rent', compact('tape'));
+	}
 }

@@ -9,6 +9,7 @@
 			<th scope="col">Size</th>
 			<th scope="col"></th>
 			<th scope="col"></th>
+			<th scope="col"></>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,6 +26,7 @@
 				</form>
 			</td>
 			<td><a href="{{route('tape.edit', ['tape'=>$tape->id])}}">Edit</a></td>
+			<td><a href="{{route('tape.rent', ['tape'=>$tape->id])}}">Rent</a></td>
 		</tr>
 		@endforeach
 		<tr>
