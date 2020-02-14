@@ -7,6 +7,10 @@
 		<input type="hidden" id="tape_id" name="tape_id" value="{{$tape->id}}"/>
 	  </div>
 	  <div class="form-group">
+		<label for="amount">Amount: </label>
+		<input type="text" id="amount" name="amount"/>
+	  </div>
+	  <div class="form-group">
 		<label for="pwd">Return Date:</label>
 		<input type="text" class="form-control" id="return_date" name="return_date">
 		@if($errors->has('return_date'))

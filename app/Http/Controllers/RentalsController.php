@@ -23,7 +23,8 @@ class RentalsController extends Controller
 	{
 		$data = request()->validate([
 			'tape_id' => 'required',
-			'return_date' => ['nullable']
+			'return_date' => ['nullable'],
+			'amount' => 'nullable'
 		]);
 		Rental::create($data);
 		
