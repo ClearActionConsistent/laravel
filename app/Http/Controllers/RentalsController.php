@@ -30,11 +30,7 @@ class RentalsController extends Controller
 		$rental = new Rental();
 		$data = request()->only($rental->getFillable());
 		$rental->fill($data);
-		
-		if(!is_null($rental->return_date))
-		{
-			//calculate cost here before insert into DB
-		}
+		$rental->calcCost();
 		
 		Rental::create($data);
 		
