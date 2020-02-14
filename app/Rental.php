@@ -8,7 +8,7 @@ use App\Tape;
 class Rental extends Model
 {
     protected $guarded = [];
-	protected $fillable = ['tape_id', 'return_date', 'amount'];
+	protected $fillable = ['tape_id', 'return_date', 'amount', 'cost'];
 	
 	public function tape()
 	{

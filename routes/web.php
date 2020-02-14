@@ -47,7 +47,7 @@ Route::delete('/tape/{tape}', 'TapesController@destroy')->name('tape.destroy');
 
 Route::get('/rental', 'RentalsController@index')->name('rental.index');
 Route::get('/rental/{tape}/create', 'RentalsController@create')->name('rental.create');
-Route::post('/rental/{tape}', 'RentalsController@store')->name('rental.store');
+Route::post('/rental', 'RentalsController@store')->name('rental.store');
 Route::get('/rental/{rental}', 'RentalsController@show')->name('rental.show');
 Route::get('/rental/{rental}/edit', 'RentalsController@edit')->name('rental.edit');
 Route::patch('/rental/{rental}', 'RentalsController@update')->name('rental.update');

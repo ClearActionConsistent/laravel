@@ -1,6 +1,6 @@
 <h1>Create Rental</h1>
 <div class="container">
-	<form class="form-inline" method="post" action="{{route('rental.store', ['tape'=>$tape->id])}}">
+	<form class="form-inline" method="post" action="{{route('rental.store')}}">
 		@csrf
 	  <div class="form-group">
 		<label for="name">Tape: {{$tape->movie->name}} {{$tape->movie->part}}</label>

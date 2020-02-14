@@ -19,13 +19,23 @@ class RentalsController extends Controller
 		return view('rental.create', compact('tape'));
 	}
 	
-	public function store(Tape $tape)
+	public function store()
 	{
 		$data = request()->validate([
 			'tape_id' => 'required',
-			'return_date' => ['nullable'],
+			'return_date' => ['nullable','date'],
 			'amount' => 'nullable'
 		]);
+		
+		$rental = new Rental();
+		$data = request()->only($rental->getFillable());
+		$rental->fill($data);
+		
+		if(!is_null($rental->return_date))
+		{
+			//calculate cost here before insert into DB
+		}
+		
 		Rental::create($data);
 		
 		return redirect()->route('rental.index');
