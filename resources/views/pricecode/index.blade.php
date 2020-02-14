@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Price Codes</h1>
 <table class="table">
 	<thead>
@@ -27,3 +31,4 @@
 		@endforeach
 	</tbody>
 </table>
+@endsection

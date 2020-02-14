@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+
 <h1>Movies</h1>
 
 <a href="{{route('movie.create')}}">Create</a>
@@ -32,3 +37,4 @@
 		</tr>
 	</tbody>
 </table>
+@endsection

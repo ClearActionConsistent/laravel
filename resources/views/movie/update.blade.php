@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <form method="post" action="{{route('movie.update',['movie'=>$movie->id])}}">
 	@csrf
 	@method('PATCH')
@@ -31,4 +35,4 @@
 	  </div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+@endsection

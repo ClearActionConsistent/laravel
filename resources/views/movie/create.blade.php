@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+
 <h1>Create Movie</h1>
 <div class="container">
 	<form class="form-inline" method="post" action="{{route('movie.store')}}">
@@ -32,3 +37,5 @@
 	  <button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
+
+@endsection

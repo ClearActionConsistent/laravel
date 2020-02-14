@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <form method="post" action="{{route('stock.update',['stock'=>$stock->id])}}">
 	@csrf
 	@method('PATCH')
@@ -21,3 +25,4 @@
 	</div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@endsection

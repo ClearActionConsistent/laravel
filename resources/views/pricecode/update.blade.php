@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <form method="post" action="{{route('pricecode.update',['priceCode'=>$priceCode->id])}}">
 	@csrf
 	@method('PATCH')
@@ -21,4 +25,4 @@
 	</div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+@endsection

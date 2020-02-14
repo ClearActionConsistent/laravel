@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Rentals</h1>
 
 <table class="table">
@@ -41,3 +45,4 @@
 		</tr>
 	</tbody>
 </table>
+@endsection

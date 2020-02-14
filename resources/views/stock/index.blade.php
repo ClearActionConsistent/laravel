@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Stocks</h1>
 
 <a href="{{route('stock.create')}}">Create</a>
@@ -32,3 +36,4 @@
 		</tr>
 	</tbody>
 </table>
+@endsection

@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Tapes</h1>
 
 <a href="{{route('tape.create')}}">Create</a>
@@ -34,3 +38,4 @@
 		</tr>
 	</tbody>
 </table>
+@endsection

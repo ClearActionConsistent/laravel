@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Create Price Code</h1>
 <div class="container">
 	<form class="form-inline" method="post" action="{{route('pricecode.store')}}">
@@ -24,3 +28,4 @@
 		  <button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
+@endsection
