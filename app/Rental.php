@@ -21,7 +21,7 @@ class Rental extends Model
 		$factory = new RentalCostCalculationFactory();
 		$rentalCostCalculation = $factory->getRentalCostCalculation($this->tape->movie->price_code_id);
 		$rentingDays = $this->calcRentingDays();
-		$this->cost = $rentalCostCalculation->calculateCost($rentingDays) * $this->tape->movie->basic_cost;
+		$this->cost = $rentalCostCalculation->calculateCost($rentingDays) * $this->tape->movie->basic_cost * $rentingDays;
 	}
 	
 	private function calcRentingDays()

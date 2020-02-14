@@ -9,7 +9,6 @@
 			<th scope="col">Part</th>
 			<th scope="col">Starting Date</th>
 			<th scope="col">Return Date</th>
-			<th scope="col">Rental Days</th>
 			<th scope="col">Amount</th>
 			<th scope="col">Cost</th>
 			<th scope="col"></th>
@@ -25,9 +24,8 @@
 			<td>{{$rt->tape->movie->part}}</td>
 			<td>{{$rt->renting_date}}</td>
 			<td>{{$rt->return_date}}</td>
-			<td>calculating rental days</td>
 			<td>{{$rt->amount}}</td>
-			<td>calculating cost</td>
+			<td>{{$rt->cost}}</td>
 			<td>
 				<form action="{{route('rental.destroy',[$rt->id])}}" method="POST">
 				 @method('DELETE')

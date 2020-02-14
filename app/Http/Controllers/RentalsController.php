@@ -31,8 +31,10 @@ class RentalsController extends Controller
 		$data = request()->only($rental->getFillable());
 		$rental->fill($data);
 		$rental->calcCost();
-		
-		Rental::create($data);
+		$rental->save();
+		//$rental->create();
+		//dd($rental);
+		//Rental::create($rental);
 		
 		return redirect()->route('rental.index');
 	}
