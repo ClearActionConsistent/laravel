@@ -18,4 +18,8 @@ class Tape extends Model
 		return $this->hasMany(Stock::class);
 	}
 	
+	public function rentals()
+	{
+		return $this->hasMany(Rental::class);
+	}
 }
