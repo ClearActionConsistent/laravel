@@ -21,6 +21,11 @@ php artisan make:model Tape -m
 php artisan make:controller TapeController
 php artisan migrage
 
+seed database: 
+php artisan make:seeder BusinessRulesTableSeeder
+php artisan db:seed
+
+
 
 
 
