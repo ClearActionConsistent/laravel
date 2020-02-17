@@ -4,30 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
-use App\QueryFilters\Movies\FilterByName;
-use App\QueryFilters\Movies\FilterByPriceCode;
+use App\QueryFilters\PriceCodeId;
+use App\QueryFilters\Name;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pipeline\Pipeline;
+
 
 class MoviesController extends Controller
 {
     public function index()
 	{
-		//$movies = Movie::query()->where('name', 'like', '%game%')->get();
+		$movies = app(Pipeline::class)
+		->send(Movie::query())
+		->through([PriceCodeId::class, Name::class])
+		->thenReturn()->paginate(5);
 		
-		
-		
-		$movies = Movie::query();
-		if(request()->has('search_price_code_id'))
-		{
-			$movies = $movies->where('price_code_id', '=', request()->search_price_code_id);
-		}
-		
-		if(request()->has('search_name'))
-		{
-			$movies = $movies->where('name', 'like', '%'.request()->search_name.'%');
-		}
-		
-		$movies = $movies->paginate(5);
 		return view('movie.index', compact('movies'));
 	}
 	
