@@ -51,6 +51,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{route('rental.index')}}">Rentals</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{route('stock.index')}}">Stocks</a>
+						</li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

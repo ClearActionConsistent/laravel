@@ -15,6 +15,7 @@
 			</span>
 		@endif
 	  </div>
+	  
 	  <div class="form-group">
 		<label for="quantity">Quanity:</label>
 		<input type="text" class="form-control" id="quantity" name="quantity">
