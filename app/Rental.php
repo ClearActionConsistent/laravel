@@ -9,7 +9,7 @@ class Rental extends Model
 {
 	private $IRentalCostCalculation;
     protected $guarded = [];
-	protected $fillable = ['tape_id', 'return_date', 'amount', 'cost'];
+	protected $fillable = ['tape_id', 'return_date', 'amount', 'cost', 'status'];
 	
 	public function tape()
 	{
