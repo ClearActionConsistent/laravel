@@ -3,13 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
+use App\Movie;
+use App\QueryFilters\Movies\FilterByName;
+use App\QueryFilters\Movies\FilterByPriceCode;
+use Illuminate\Support\Facades\DB;
 
 class MoviesController extends Controller
 {
     public function index()
 	{
-		$movies = App\Movie::paginate(5);
+		//$movies = Movie::query()->where('name', 'like', '%game%')->get();
+		
+		
+		
+		$movies = Movie::query();
+		if(request()->has('search_price_code_id'))
+		{
+			$movies = $movies->where('price_code_id', '=', request()->search_price_code_id);
+		}
+		
+		if(request()->has('search_name'))
+		{
+			$movies = $movies->where('name', 'like', '%'.request()->search_name.'%');
+		}
+		
+		$movies = $movies->paginate(5);
 		return view('movie.index', compact('movies'));
 	}
 	
@@ -31,17 +49,17 @@ class MoviesController extends Controller
 		return redirect()->route('movie.index');
 	}
 	
-	public function show(App\Movie $movie)
+	public function show(Movie $movie)
 	{
 		return view('movie.show', compact('movie'));
 	}
 	
-	public function edit(App\Movie $movie)
+	public function edit(Movie $movie)
 	{
 		return view('movie.update', compact('movie'));
 	}
 	
-	public function update(App\Movie $movie)
+	public function update(Movie $movie)
 	{
 		$data = request()->validate([
 			'name' => 'required',
@@ -53,7 +71,7 @@ class MoviesController extends Controller
 		return redirect()->route('movie.index');
 	}
 	
-	public function destroy(App\Movie $movie)
+	public function destroy(Movie $movie)
 	{
 		$movie->delete();
 		return redirect()->route('movie.index');

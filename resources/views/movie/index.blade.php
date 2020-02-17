@@ -6,6 +6,7 @@
 <h1>Movies</h1>
 
 <a href="{{route('movie.create')}}">Create</a>
+@include('partials.movies.search')
 <table class="table">
 	<thead>
 		<tr>

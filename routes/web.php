@@ -29,7 +29,7 @@ Route::patch('/pricecode/{priceCode}', 'PriceCodesController@update')->name('pri
 //Route::put('/pricecode/{pricecode}', 'PriceCodesController@update')->name('pricecode.update');
 Route::delete('/pricecode/{priceCode}', 'PriceCodesController@destroy')->name('pricecode.destroy');
 
-Route::get('/movie', 'MoviesController@index')->name('movie.index');
+Route::get('/movie/{search?}', 'MoviesController@index')->name('movie.index');
 Route::get('/movie/create', 'MoviesController@create')->name('movie.create');
 Route::post('/movie', 'MoviesController@store')->name('movie.store');
 Route::get('/movie/{movie}', 'MoviesController@show')->name('movie.show');
