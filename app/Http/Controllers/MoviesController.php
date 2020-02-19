@@ -25,6 +25,7 @@ class MoviesController extends Controller
 	public function create()
 	{
 		//$priceCode = App\PriceCode::orderBy('id')->get();
+		dd('eee');
 		return view('movie.create');
 	}
 	

@@ -38,7 +38,7 @@ Route::patch('/movie/{movie}', 'MoviesController@update')->name('movie.update');
 Route::delete('/movie/{movie}', 'MoviesController@destroy')->name('movie.destroy');
 
 Route::get('/tape', 'TapesController@index')->name('tape.index');
-Route::get('/tape/create', 'TapesController@create')->name('tape.create');
+Route::get('/tape/create', 'TapesController@create')->name('tape.create')->middleware('can:create-movie');
 Route::post('/tape', 'TapesController@store')->name('tape.store');
 Route::get('/tape/{tape}', 'TapesController@show')->name('tape.show');
 Route::get('/tape/{tape}/edit', 'TapesController@edit')->name('tape.edit');

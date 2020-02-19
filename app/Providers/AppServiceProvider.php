@@ -8,6 +8,7 @@ use App\PriceCode;
 use App\Http\View\Composers\PriceCodesComposer;
 use App\Http\View\Composers\MoviesComposer;
 use App\Http\View\Composers\TapesComposer;
+use Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,5 +50,17 @@ class AppServiceProvider extends ServiceProvider
 		View::composer(['partials.pricecodes.*'], PriceCodesComposer::class);
 		View::composer(['partials.movies.*'], MoviesComposer::class);
 		View::composer(['partials.tapes.*'], TapesComposer::class);
+		
+		//$this->registerPolicies();
+		$this->registerMoviePolicies();
     }
+	
+	public function registerMoviePolicies()
+	{
+		Gate::define('create-movie', function($user){
+			return $user->hasAccess(['create-movie']);
+		});
+		
+		
+	}
 }
