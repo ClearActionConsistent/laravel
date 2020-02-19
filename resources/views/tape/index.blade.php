@@ -4,7 +4,7 @@
 
 <h1>Tapes</h1>
 
-<a href="{{route('tape.create')}}">Create</a>
+<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Create</button>
 <table class="table">
 	<thead>
 		<tr>
@@ -38,4 +38,7 @@
 		</tr>
 	</tbody>
 </table>
+
+
+@include("tape.create")
 @endsection
