@@ -44,10 +44,8 @@ class User extends Authenticatable
 	
 	public function hasAccess(array $permissions): bool
 	{
-		$returndata = '';
 		foreach($this->roles as $role)
 		{
-			//$returndata += $role->name;
 			foreach($role->permissions as $permission)
 			{
 				if(in_array($permission->name, $permissions))

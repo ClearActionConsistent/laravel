@@ -60,7 +60,5 @@ class AppServiceProvider extends ServiceProvider
 		Gate::define('create-movie', function($user){
 			return $user->hasAccess(['create-movie']);
 		});
-		
-		
 	}
 }
