@@ -29,7 +29,7 @@
 				 <button type="submit">Delete</button>               
 				</form>
 			</td>
-			<td><a href="{{route('tape.edit', ['tape'=>$tape->id])}}">Edit</a></td>
+			<td><create-button-component id="{{$tape->id}}"/></td>
 			<td><a href="{{route('rental.create', ['tape'=>$tape->id])}}">Rent</a></td>
 		</tr>
 		@endforeach
@@ -40,5 +40,5 @@
 </table>
 
 
-@include("tape.create")
+<tape-form-component/>
 @endsection
