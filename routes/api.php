@@ -20,3 +20,7 @@ Route::get('/movie/{movie}', function(Movie $movie){
 Route::get('/tape/{tape}', function(Tape $tape){
     return $tape;
 });
+
+Route::get('/movie', function(){
+    return App\Movie::all();
+});

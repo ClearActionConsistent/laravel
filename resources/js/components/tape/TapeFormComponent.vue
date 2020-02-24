@@ -13,8 +13,8 @@
           <form class="form-inline" method="post">
 				
 			  <div class="form-group">
-				<!--<label for="movie_id">Movie:</label>-->
-				<!--@include('partials.movies.dropdown')-->
+				<label for="movie_id">Movie:</label>
+				<movie-dropdown-component/>
 				
 			  </div>
 			  <div class="form-group">
@@ -36,17 +36,21 @@
 </template>
 
 <script>
-    export default {
-        name: 'tape-form-component',
-        computed: {
-          size: {
-            get(){
-              return this.$store.state.tape.size;
-            },
-            set(value){
-              this.$store.commit('changeSize', value);
-            }
+  import MovieDropdownComponent from './MovieDropdownComponent';
+  export default {
+      name: 'tape-form-component',
+      components: {
+        MovieDropdownComponent
+      },
+      computed: {
+        size: {
+          get(){
+            return this.$store.state.tape.size;
+          },
+          set(value){
+            this.$store.commit('changeSize',);
           }
         }
-    }
+      }
+  }
 </script>
