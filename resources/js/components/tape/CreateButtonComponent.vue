@@ -11,10 +11,14 @@
         },
         methods:{
           editTape(){
-            var url = '/api/movie/' + this.id;
+            var store = this.$store;
+            var url = '/api/tape/' + this.id;
             axios.get(url)
             .then(function(res){
-              console.log(res);
+              store.commit('changeMovieId', res.data.id);
+              store.commit('changeSize', res.data.size);
+              console.log(store.state.tape.movie_id);
+              console.log(store.state.tape.size);
             })
             .catch(function(err){
               console.log(err);

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Tape;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +16,7 @@ use App\Movie;
 
 Route::get('/movie/{movie}', function(Movie $movie){
     return $movie;
+});
+Route::get('/tape/{tape}', function(Tape $tape){
+    return $tape;
 });

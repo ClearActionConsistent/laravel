@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import store from "./store";
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,5 +31,6 @@ Vue.component('create-button-component', require('./components/tape/CreateButton
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });

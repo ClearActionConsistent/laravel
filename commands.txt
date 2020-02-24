@@ -25,6 +25,9 @@ seed database:
 php artisan make:seeder BusinessRulesTableSeeder
 php artisan db:seed
 
+//use vuex to share data between components through out the app(components not in hierachy)
+npm install vuex --save 
+
 
 
 
