@@ -13,14 +13,13 @@
           <form class="form-inline" method="post">
 				
 			  <div class="form-group">
-				<label for="movie_id">Movie:</label>
+				<!--<label for="movie_id">Movie:</label>-->
 				<!--@include('partials.movies.dropdown')-->
 				
 			  </div>
 			  <div class="form-group">
 				<label for="size">Size:</label>
-				<input type="text" class="form-control" id="size" name="size">
-				
+				<input type="text" class="form-control" id="size" name="size" v-model="size"/>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
@@ -38,6 +37,16 @@
 
 <script>
     export default {
-        name: 'tape-form-component'
+        name: 'tape-form-component',
+        computed: {
+          size: {
+            get(){
+              return this.$store.state.tape.size;
+            },
+            set(value){
+              this.$store.commit('changeSize', value);
+            }
+          }
+        }
     }
 </script>

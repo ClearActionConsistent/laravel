@@ -6,17 +6,21 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         tape: {
-            movie_id: '',
+            movieId: '',
             size: ''
         }
     },
     getters: {},
     mutations: {
         changeMovieId(state, id){
-            state.tape.movie_id = id;
+            state.tape.movieId = id;
         },
         changeSize(state, size){
             state.tape.size = size;
+        },
+        changeTape(state, tape){
+            state.tape.movieId = tape.movie_id;
+            state.tape.size = tape.size;
         }
     },
     actions: {}

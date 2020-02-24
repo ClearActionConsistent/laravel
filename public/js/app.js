@@ -1939,18 +1939,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'create-button-component',
   props: ['id'],
-  data: {
-    id: ''
-  },
   methods: {
     editTape: function editTape() {
       var store = this.$store;
       var url = '/api/tape/' + this.id;
       axios.get(url).then(function (res) {
-        store.commit('changeMovieId', res.data.id);
-        store.commit('changeSize', res.data.size);
-        console.log(store.state.tape.movie_id);
+        store.commit('changeTape', res.data);
+        console.log(store.state.tape.movieId);
         console.log(store.state.tape.size);
+        $("#myModal").modal();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2006,9 +2003,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'tape-form-component'
+  name: 'tape-form-component',
+  computed: {
+    size: {
+      get: function get() {
+        return this.$store.state.tape.size;
+      },
+      set: function set(value) {
+        this.$store.commit('changeSize', value);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -37407,82 +37413,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "modal fade", attrs: { id: "myModal", role: "dialog" } },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "form",
+                { staticClass: "form-inline", attrs: { method: "post" } },
+                [
+                  _c("div", { staticClass: "form-group" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "size" } }, [_vm._v("Size:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.size,
+                          expression: "size"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "size", name: "size" },
+                      domProps: { value: _vm.size },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.size = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+    return _c("div", { staticClass: "modal-header text-left" }, [
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Create Tape")]),
+      _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "modal fade", attrs: { id: "myModal", role: "dialog" } },
-        [
-          _c("div", { staticClass: "modal-dialog" }, [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header text-left" }, [
-                _c("h4", { staticClass: "modal-title" }, [
-                  _vm._v("Create Tape")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("×")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  { staticClass: "form-inline", attrs: { method: "post" } },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "movie_id" } }, [
-                        _vm._v("Movie:")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "size" } }, [
-                        _vm._v("Size:")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "size", name: "size" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Submit")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Close")]
-                )
-              ])
-            ])
-          ])
-        ]
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
       )
     ])
   }
@@ -50966,17 +50987,21 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     tape: {
-      movie_id: '',
+      movieId: '',
       size: ''
     }
   },
   getters: {},
   mutations: {
     changeMovieId: function changeMovieId(state, id) {
-      state.tape.movie_id = id;
+      state.tape.movieId = id;
     },
     changeSize: function changeSize(state, size) {
       state.tape.size = size;
+    },
+    changeTape: function changeTape(state, tape) {
+      state.tape.movieId = tape.movie_id;
+      state.tape.size = tape.size;
     }
   },
   actions: {}
