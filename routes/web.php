@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'HomeController@test')->name('home.test');
 
@@ -26,20 +27,18 @@ Route::post('/pricecode', 'PriceCodesController@store')->name('pricecode.store')
 Route::get('/pricecode/{priceCode}', 'PriceCodesController@show')->name('pricecode.show');
 Route::get('/pricecode/{priceCode}/edit', 'PriceCodesController@edit')->name('pricecode.edit');
 Route::patch('/pricecode/{priceCode}', 'PriceCodesController@update')->name('pricecode.update');
-//when put and when patch????????????
-//Route::put('/pricecode/{pricecode}', 'PriceCodesController@update')->name('pricecode.update');
 Route::delete('/pricecode/{priceCode}', 'PriceCodesController@destroy')->name('pricecode.destroy');
 
-Route::get('/movie/{search?}', 'MoviesController@index')->name('movie.index');
-Route::get('/movie/create', 'MoviesController@create')->name('movie.create');
+Route::get('/movie/index/{search?}', 'MoviesController@index')->name('movie.index');
 Route::post('/movie', 'MoviesController@store')->name('movie.store');
+Route::get('/movie/create', 'MoviesController@create')->name('movie.create')->middleware('can:create-movie');
 Route::get('/movie/{movie}', 'MoviesController@show')->name('movie.show');
 Route::get('/movie/{movie}/edit', 'MoviesController@edit')->name('movie.edit');
 Route::patch('/movie/{movie}', 'MoviesController@update')->name('movie.update');
 Route::delete('/movie/{movie}', 'MoviesController@destroy')->name('movie.destroy');
 
 Route::get('/tape', 'TapesController@index')->name('tape.index');
-Route::get('/tape/create', 'TapesController@create')->name('tape.create')->middleware('can:create-movie');
+Route::get('/tape/create', 'TapesController@create')->name('tape.create');
 Route::post('/tape', 'TapesController@store')->name('tape.store');
 Route::get('/tape/{tape}', 'TapesController@show')->name('tape.show');
 Route::get('/tape/{tape}/edit', 'TapesController@edit')->name('tape.edit');

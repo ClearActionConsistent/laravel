@@ -1944,7 +1944,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editTape: function editTape() {
-      alert(this.id);
+      var url = '/api/movie/' + this.id;
+      axios.get(url).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }
 });

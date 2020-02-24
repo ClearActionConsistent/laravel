@@ -11,7 +11,14 @@
         },
         methods:{
           editTape(){
-            alert(this.id);
+            var url = '/api/movie/' + this.id;
+            axios.get(url)
+            .then(function(res){
+              console.log(res);
+            })
+            .catch(function(err){
+              console.log(err);
+            });
           }
         }
     }
