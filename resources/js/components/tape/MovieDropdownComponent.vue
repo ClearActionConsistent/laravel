@@ -13,7 +13,7 @@
 <script>
     export default {
         name: 'movie-dropdown-component',
-        data(){
+        data: function(){
           return {
             listMovies: null,
             loading: false,
@@ -26,12 +26,12 @@
         methods: {
           fetchData(){
             axios.get('/api/movie')
-            .then(function(res){
-              self.listMovies = JSON.parse(res.data);
-              console.log(res.data);
+            .then((res)=>{
+              setTimeout(10000);
+              this.listMovies = res.data;
             })
-            .catch(function(err){
-              //this.error = err;
+            .catch((err)=>{
+              console.log(err);
             });
           }
         }

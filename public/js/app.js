@@ -1990,10 +1990,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fetchData: function fetchData() {
+      var _this = this;
+
       axios.get('/api/movie').then(function (res) {
-        self.listMovies = JSON.parse(res.data);
-        console.log(res.data);
-      })["catch"](function (err) {//this.error = err;
+        setTimeout(10000);
+        _this.listMovies = res.data;
+      })["catch"](function (err) {
+        console.log(err);
       });
     }
   }
