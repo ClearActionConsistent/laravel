@@ -3,7 +3,11 @@
     <div v-if="loading" class="loading">loading...</div>
     <div v-if="error" class="error">{{error}}</div>
     <select v-if="listMovies">
-        <option v-for="item in listMovies" v-bind:key="item.id">
+        <option 
+          v-for="item in listMovies" 
+          v-bind:key="item.id" 
+          :selected="selectedId == item.id"
+          v-bind:value="item.id">
           {{item.name}} {{item.part}}
         </option>
     </select>
@@ -13,6 +17,7 @@
 <script>
     export default {
         name: 'movie-dropdown-component',
+        props: ["selectedId"],
         data: function(){
           return {
             listMovies: null,
@@ -27,7 +32,6 @@
           fetchData(){
             axios.get('/api/movie')
             .then((res)=>{
-              setTimeout(10000);
               this.listMovies = res.data;
             })
             .catch((err)=>{

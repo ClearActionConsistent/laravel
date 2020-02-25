@@ -14,13 +14,14 @@
 				
 			  <div class="form-group">
 				<label for="movie_id">Movie:</label>
-				<movie-dropdown-component/>
+				<movie-dropdown-component v-bind:selectedId="selectedMovieId"/>
 				
 			  </div>
 			  <div class="form-group">
 				<label for="size">Size:</label>
 				<input type="text" class="form-control" id="size" name="size" v-model="size"/>
 			  </div>
+
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
         </div>
@@ -48,7 +49,15 @@
             return this.$store.state.tape.size;
           },
           set(value){
-            this.$store.commit('changeSize',);
+            this.$store.commit('changeSize', value);
+          }
+        },
+        selectedMovieId: {
+          get(){
+            return this.$store.state.tape.movieId;
+          },
+          set(value){
+            this.$store.commit('changeMovieId', value);
           }
         }
       }

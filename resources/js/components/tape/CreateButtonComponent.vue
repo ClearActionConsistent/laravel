@@ -11,10 +11,9 @@
             var store = this.$store;
             var url = '/api/tape/' + this.id;
             axios.get(url)
-            .then(function(res){
+            .then((res)=>{
               store.commit('changeTape', res.data);
               $("#myModal").modal();
-
             })
             .catch(function(err){
               console.log(err);

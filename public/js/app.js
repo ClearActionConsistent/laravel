@@ -1976,8 +1976,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'movie-dropdown-component',
+  props: ["selectedId"],
   data: function data() {
     return {
       listMovies: null,
@@ -1993,7 +1998,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/movie').then(function (res) {
-        setTimeout(10000);
         _this.listMovies = res.data;
       })["catch"](function (err) {
         console.log(err);
@@ -2051,6 +2055,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'tape-form-component',
@@ -2063,7 +2068,15 @@ __webpack_require__.r(__webpack_exports__);
         return this.$store.state.tape.size;
       },
       set: function set(value) {
-        this.$store.commit('changeSize');
+        this.$store.commit('changeSize', value);
+      }
+    },
+    selectedMovieId: {
+      get: function get() {
+        return this.$store.state.tape.movieId;
+      },
+      set: function set(value) {
+        this.$store.commit('changeMovieId', value);
       }
     }
   }
@@ -37478,15 +37491,25 @@ var render = function() {
       ? _c(
           "select",
           _vm._l(_vm.listMovies, function(item) {
-            return _c("option", { key: item.id }, [
-              _vm._v(
-                "\n        " +
-                  _vm._s(item.name) +
-                  " " +
-                  _vm._s(item.part) +
-                  "\n      "
-              )
-            ])
+            return _c(
+              "option",
+              {
+                key: item.id,
+                domProps: {
+                  selected: _vm.selectedId == item.id,
+                  value: item.id
+                }
+              },
+              [
+                _vm._v(
+                  "\n        " +
+                    _vm._s(item.name) +
+                    " " +
+                    _vm._s(item.part) +
+                    "\n      "
+                )
+              ]
+            )
           }),
           0
         )
@@ -37537,7 +37560,9 @@ var render = function() {
                         _vm._v("Movie:")
                       ]),
                       _vm._v(" "),
-                      _c("movie-dropdown-component")
+                      _c("movie-dropdown-component", {
+                        attrs: { selectedId: _vm.selectedMovieId }
+                      })
                     ],
                     1
                   ),
